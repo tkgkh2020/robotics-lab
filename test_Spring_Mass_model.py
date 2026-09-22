@@ -1,6 +1,18 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy.integrate import odeint
+import matplotlib.font_manager as fm
+
+# 日本語フォントの設定（macOS用）
+try:
+    # macOSの日本語フォントを直接指定
+    font_path = '/System/Library/Fonts/ヒラギノ角ゴシック W3.ttc'
+    font_prop = fm.FontProperties(fname=font_path)
+    plt.rcParams['font.family'] = font_prop.get_name()
+except:
+    # フォールバック設定
+    plt.rcParams['font.family'] = 'DejaVu Sans'
+    plt.rcParams['font.sans-serif'] = ['Hiragino Sans', 'Yu Gothic', 'Meiryo', 'Takao', 'IPAexGothic', 'IPAPGothic', 'VL PGothic', 'Noto Sans CJK JP']
 
 # バネマスシステムのパラメータ
 m = 1.0  # 質量 [kg]
